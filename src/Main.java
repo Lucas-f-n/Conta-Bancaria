@@ -15,6 +15,7 @@ public class Main {
         int menu;
         double saldo = 2500.00;
         double receber;
+        double transferencia;
         do{
          System.out.println("""
                  Operações:
@@ -36,9 +37,17 @@ public class Main {
                  receber = scanner.nextDouble();
                  saldo += receber;
                  break;
+             case 3:
+                 System.out.println("Informe o valor que deseja transferir:");
+                 transferencia = scanner.nextDouble();
+                 if (transferencia<saldo){
+                     saldo -= transferencia;
+                     System.out.printf("Transferencia concluida!!\nSaldo atual de R$%.2f\n",saldo);
+                 }else {
+                     System.out.println("Não ha saldo suficiente para transferencia");
+                 }
          }
-
         }while ( menu != 4);
-
+        System.out.println("Obrigado por utilizar nossos serviços");
     }
 }
